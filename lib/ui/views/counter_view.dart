@@ -1,24 +1,33 @@
-import 'package:bases_web/ui/shared/custom_app_menu.dart';
 import 'package:flutter/material.dart';
 
 import '../shared/custom_flat_button.dart';
 
 class CounterView extends StatefulWidget {
-  const CounterView({super.key});
+  final String base;
+
+  const CounterView({super.key, required this.base});
 
   @override
   State<CounterView> createState() => _CounterViewState();
 }
 
 class _CounterViewState extends State<CounterView> {
-  int counter = 0;
+  int counter = 5;
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (int.tryParse(widget.base) != null) {
+      counter = int.parse(widget.base);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const CustomAppMenu(),
         const Spacer(),
         const Text(
           "Contador Staful",
@@ -56,11 +65,5 @@ class _CounterViewState extends State<CounterView> {
         const Spacer(),
       ],
     );
-  }
-
-  void _onPreseed() {
-    setState(() {
-      counter += 1;
-    });
   }
 }

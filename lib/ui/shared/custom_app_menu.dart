@@ -11,18 +11,14 @@ class CustomAppMenu extends StatelessWidget {
     return LayoutBuilder(
       builder: (_, constraints) {
         return (constraints.maxWidth > 520)
-            ? const _TableDesktopMenu()
-            : const _MobileMenu();
+            ? _TableDesktopMenu()
+            : _MobileMenu();
       },
     );
   }
 }
 
 class _TableDesktopMenu extends StatelessWidget {
-  const _TableDesktopMenu({
-    super.key,
-  });
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -48,6 +44,18 @@ class _TableDesktopMenu extends StatelessWidget {
             text: "Otra Pagina",
             onPressed: () => locator<NavigatorService>().navigateTo("/123"),
           ),
+          const SizedBox(width: 10),
+          CustomFlatButton(
+            text: "Contador StateFul 100",
+            onPressed: () =>
+                locator<NavigatorService>().navigateTo("/stateful/100"),
+          ),
+          const SizedBox(width: 10),
+          CustomFlatButton(
+            text: "Contador Provider 200",
+            onPressed: () =>
+                locator<NavigatorService>().navigateTo("/provider?q=200"),
+          ),
         ],
       ),
     );
@@ -55,10 +63,6 @@ class _TableDesktopMenu extends StatelessWidget {
 }
 
 class _MobileMenu extends StatelessWidget {
-  const _MobileMenu({
-    super.key,
-  });
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -84,6 +88,18 @@ class _MobileMenu extends StatelessWidget {
           CustomFlatButton(
             text: "Otra Pagina",
             onPressed: () => locator<NavigatorService>().navigateTo("/123"),
+          ),
+          const SizedBox(width: 10),
+          CustomFlatButton(
+            text: "Contador StateFul 100",
+            onPressed: () =>
+                locator<NavigatorService>().navigateTo("/stateful/100"),
+          ),
+          const SizedBox(width: 10),
+          CustomFlatButton(
+            text: "Contador Provider 200",
+            onPressed: () =>
+                locator<NavigatorService>().navigateTo("/provider?q=200"),
           ),
         ],
       ),

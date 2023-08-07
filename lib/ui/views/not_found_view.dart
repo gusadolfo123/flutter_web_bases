@@ -1,13 +1,14 @@
 import 'package:bases_web/ui/shared/custom_flat_button.dart';
 import 'package:flutter/material.dart';
 
-class Page404 extends StatelessWidget {
-  const Page404({super.key});
+class NotFoundView extends StatelessWidget {
+  const NotFoundView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
+    return Container(
+      color: Theme.of(context).primaryColor,
+      child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
